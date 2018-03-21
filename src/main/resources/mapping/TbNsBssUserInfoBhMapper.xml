@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.TbNsBssUserInfoBhMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.po.TbNsBssUserInfoBh">
+    <id column="SN" jdbcType="VARCHAR" property="sn" />
+    <result column="SERVICE_NBR" jdbcType="VARCHAR" property="serviceNbr" />
+    <result column="SERV_ID" jdbcType="BIGINT" property="servId" />
+    <result column="IMSI" jdbcType="VARCHAR" property="imsi" />
+    <result column="IMEI" jdbcType="VARCHAR" property="imei" />
+    <result column="ACCOUNT" jdbcType="VARCHAR" property="account" />
+    <result column="PASSWD" jdbcType="VARCHAR" property="passwd" />
+    <result column="USER_STATE" jdbcType="VARCHAR" property="userState" />
+    <result column="STATE_170" jdbcType="CHAR" property="state170" />
+    <result column="MCC" jdbcType="INTEGER" property="mcc" />
+    <result column="LAC" jdbcType="VARCHAR" property="lac" />
+    <result column="EFF_DATE" jdbcType="TIMESTAMP" property="effDate" />
+    <result column="LAST_USE_TIME" jdbcType="TIMESTAMP" property="lastUseTime" />
+    <result column="EXP_DATE" jdbcType="TIMESTAMP" property="expDate" />
+    <result column="USER_TYPE" jdbcType="INTEGER" property="userType" />
+    <result column="PRIORITY" jdbcType="INTEGER" property="priority" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SN, SERVICE_NBR, SERV_ID, IMSI, IMEI, ACCOUNT, PASSWD, USER_STATE, STATE_170, MCC, 
+    LAC, EFF_DATE, LAST_USE_TIME, EXP_DATE, USER_TYPE, PRIORITY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_ns_bss_user_info_bh
+    where SN = #{sn,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tb_ns_bss_user_info_bh
+    where SN = #{sn,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.po.TbNsBssUserInfoBh">
+    insert into tb_ns_bss_user_info_bh (SN, SERVICE_NBR, SERV_ID, 
+      IMSI, IMEI, ACCOUNT, 
+      PASSWD, USER_STATE, STATE_170, 
+      MCC, LAC, EFF_DATE, 
+      LAST_USE_TIME, EXP_DATE, USER_TYPE, 
+      PRIORITY)
+    values (#{sn,jdbcType=VARCHAR}, #{serviceNbr,jdbcType=VARCHAR}, #{servId,jdbcType=BIGINT}, 
+      #{imsi,jdbcType=VARCHAR}, #{imei,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, 
+      #{passwd,jdbcType=VARCHAR}, #{userState,jdbcType=VARCHAR}, #{state170,jdbcType=CHAR}, 
+      #{mcc,jdbcType=INTEGER}, #{lac,jdbcType=VARCHAR}, #{effDate,jdbcType=TIMESTAMP}, 
+      #{lastUseTime,jdbcType=TIMESTAMP}, #{expDate,jdbcType=TIMESTAMP}, #{userType,jdbcType=INTEGER}, 
+      #{priority,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.po.TbNsBssUserInfoBh">
+    insert into tb_ns_bss_user_info_bh
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sn != null">
+        SN,
+      </if>
+      <if test="serviceNbr != null">
+        SERVICE_NBR,
+      </if>
+      <if test="servId != null">
+        SERV_ID,
+      </if>
+      <if test="imsi != null">
+        IMSI,
+      </if>
+      <if test="imei != null">
+        IMEI,
+      </if>
+      <if test="account != null">
+        ACCOUNT,
+      </if>
+      <if test="passwd != null">
+        PASSWD,
+      </if>
+      <if test="userState != null">
+        USER_STATE,
+      </if>
+      <if test="state170 != null">
+        STATE_170,
+      </if>
+      <if test="mcc != null">
+        MCC,
+      </if>
+      <if test="lac != null">
+        LAC,
+      </if>
+      <if test="effDate != null">
+        EFF_DATE,
+      </if>
+      <if test="lastUseTime != null">
+        LAST_USE_TIME,
+      </if>
+      <if test="expDate != null">
+        EXP_DATE,
+      </if>
+      <if test="userType != null">
+        USER_TYPE,
+      </if>
+      <if test="priority != null">
+        PRIORITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sn != null">
+        #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceNbr != null">
+        #{serviceNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="servId != null">
+        #{servId,jdbcType=BIGINT},
+      </if>
+      <if test="imsi != null">
+        #{imsi,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null">
+        #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null">
+        #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userState != null">
+        #{userState,jdbcType=VARCHAR},
+      </if>
+      <if test="state170 != null">
+        #{state170,jdbcType=CHAR},
+      </if>
+      <if test="mcc != null">
+        #{mcc,jdbcType=INTEGER},
+      </if>
+      <if test="lac != null">
+        #{lac,jdbcType=VARCHAR},
+      </if>
+      <if test="effDate != null">
+        #{effDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUseTime != null">
+        #{lastUseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expDate != null">
+        #{expDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.po.TbNsBssUserInfoBh">
+    update tb_ns_bss_user_info_bh
+    <set>
+      <if test="serviceNbr != null">
+        SERVICE_NBR = #{serviceNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="servId != null">
+        SERV_ID = #{servId,jdbcType=BIGINT},
+      </if>
+      <if test="imsi != null">
+        IMSI = #{imsi,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null">
+        IMEI = #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        ACCOUNT = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null">
+        PASSWD = #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userState != null">
+        USER_STATE = #{userState,jdbcType=VARCHAR},
+      </if>
+      <if test="state170 != null">
+        STATE_170 = #{state170,jdbcType=CHAR},
+      </if>
+      <if test="mcc != null">
+        MCC = #{mcc,jdbcType=INTEGER},
+      </if>
+      <if test="lac != null">
+        LAC = #{lac,jdbcType=VARCHAR},
+      </if>
+      <if test="effDate != null">
+        EFF_DATE = #{effDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUseTime != null">
+        LAST_USE_TIME = #{lastUseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expDate != null">
+        EXP_DATE = #{expDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userType != null">
+        USER_TYPE = #{userType,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null">
+        PRIORITY = #{priority,jdbcType=INTEGER},
+      </if>
+    </set>
+    where SN = #{sn,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.po.TbNsBssUserInfoBh">
+    update tb_ns_bss_user_info_bh
+    set SERVICE_NBR = #{serviceNbr,jdbcType=VARCHAR},
+      SERV_ID = #{servId,jdbcType=BIGINT},
+      IMSI = #{imsi,jdbcType=VARCHAR},
+      IMEI = #{imei,jdbcType=VARCHAR},
+      ACCOUNT = #{account,jdbcType=VARCHAR},
+      PASSWD = #{passwd,jdbcType=VARCHAR},
+      USER_STATE = #{userState,jdbcType=VARCHAR},
+      STATE_170 = #{state170,jdbcType=CHAR},
+      MCC = #{mcc,jdbcType=INTEGER},
+      LAC = #{lac,jdbcType=VARCHAR},
+      EFF_DATE = #{effDate,jdbcType=TIMESTAMP},
+      LAST_USE_TIME = #{lastUseTime,jdbcType=TIMESTAMP},
+      EXP_DATE = #{expDate,jdbcType=TIMESTAMP},
+      USER_TYPE = #{userType,jdbcType=INTEGER},
+      PRIORITY = #{priority,jdbcType=INTEGER}
+    where SN = #{sn,jdbcType=VARCHAR}
+  </update>
+</mapper>
